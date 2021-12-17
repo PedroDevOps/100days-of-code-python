@@ -5,6 +5,7 @@ from datetime import datetime
 
 datetime.today()
 # datetime.datetime(2021, 1, 19, 14, 38, 52, 133483)
+myBirthday = datetime.date(1986,4,21)
 
 today = datetime.today()
 
