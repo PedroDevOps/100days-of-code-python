@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
+"""
+Author:  Pedro DevOps <pedroDevOps@gmail.com>
+Purpose: Test logtimes.py 
+Project: 100Days of code with Python
+Progress: Roond1, Day2 = R1D2
+"""
 
-import unittest
+# Just execute with pytest, like:
+# ubuntu@DESKTOP:~/ pytest test_logtimes.py
+# or
+# ubuntu@DESKTOP:~/ pytest -xv test_logtimes.py
 
 from datetime import datetime, timedelta
-from logtimes import loglines, convert_to_datetime, time_between_shutdowns
-
-
+from Projects.logtimes import loglines, convert_to_datetime, time_between_shutdowns
 
 def test_convert_to_datetime():
     line1 = 'ERROR 2014-07-03T23:24:31 supybot Invalid user dictionary file'

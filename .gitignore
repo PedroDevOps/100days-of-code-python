@@ -1,2 +1,9 @@
+# This is not my credentials in plain text. (Wink)
 token.txt
+
+#Benchmark files
+.benchmarks
+
+#Cache Files
 __pycache__
+.pytest_cache

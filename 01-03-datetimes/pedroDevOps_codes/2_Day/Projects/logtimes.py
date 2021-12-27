@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Author:  Pedro DevOps <pedroDevOps@gmail.com>
+Purpose: Extract log times from file 
+Project: 100Days of code with Python
+Progress: Roond1, Day2 = R1D2
+"""
 
 from datetime import datetime, date, time
 import os
@@ -25,7 +31,7 @@ with open(logfile) as f:
         #returns:
         #datetime(2014, 7, 3, 23, 27, 51)
 def convert_to_datetime(line):
-    # only works if there isn't anyother number in the line
+    # only works if there isn't another number in the line like: INFO 2014-07-03T23:27:51 supybot Killing 20 Driver objects.
     datas_from_line = re.findall('[0-9]+', line)
     d = date(int(datas_from_line[0]), int(datas_from_line[1]), int(datas_from_line[2]))
     t = time(int(datas_from_line[3]), int(datas_from_line[4]), int(datas_from_line[5]))
