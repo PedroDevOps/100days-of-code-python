@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
 Author:  Pedro DevOps <pedroDevOps@gmail.com>
-Purpose: Create your own Pomodoro Timer
+Purpose: Create my own Pomodoro Timer
 Project: 100Days of code with Python
-Progress: Roond1, Day3 = R1D3
+Progress: Round1, Day3 = R1D3
 Challenge: https://codechalleng.es/challenges/52/
+References:
 OBS:
-flake8 was used: # flake8 pomodoro.py
-autopep8 was used: # autopep8 --in-place --aggressive --aggressive pomodoro.py
+    flake8 was used: # flake8 pomodoro.py
+    autopep8 was used: # autopep8 --in-place --aggressive --aggressive pomodoro.py
+    bandit was used: # bandit -r pomodoro.py
 """
 
 from datetime import timedelta, datetime
@@ -48,11 +50,12 @@ def pomodoro_timer(title, interval_time, rest_time, how_many_cycles):
         try:
             i = 0
             while i < how_many_cycles:
-                countdown((title + " Cycle " + str(i) + "-->"), interval_time, rest_time)
+                countdown((title + " Cycle " + str(i) + "-->"),
+                          interval_time, rest_time)
                 i = i + 1
             keep_using_timer = False
         except Exception:
-            print("Something went wrong inside the pomodo_timer function")
+            print("Something went wrong inside the pomodoro_timer function")
             break
 
 
@@ -60,22 +63,56 @@ def pomodoro_timer(title, interval_time, rest_time, how_many_cycles):
 # Pass the args in the command line.
 def main():
     parser = argparse.ArgumentParser(description='Pomodoro Timer')
-    parser.add_argument('-CH', '--cycle_hours', metavar='cycle_hours',
-                        default='0', help='how many hours to set the cycle timer')
-    parser.add_argument('-CM', '--cycle_minutes', metavar='cycle_minutes',
-                        default='0', help='how many minutes to set the cycle timer')
-    parser.add_argument('-CS', '--cycle_seconds', metavar='cycle_seconds',
-                        default='0', help='how many seconds to set the cycle timer')
-    parser.add_argument('-BH', '--break_hours', metavar='break_hours',
-                        default='0', help='how many hours to set the break timer')
-    parser.add_argument('-BM', '--break_minutes', metavar='break_minutes',
-                        default='0', help='how many minutes to set the break timer')
-    parser.add_argument('-BS', '--break_seconds', metavar='break_seconds',
-                        default='0', help='how many seconds to set the break timer')
+    parser.add_argument(
+        '-CH',
+        '--cycle_hours',
+        metavar='cycle_hours',
+        default='0',
+        help='how many hours to set the cycle timer')
+    parser.add_argument(
+        '-CM',
+        '--cycle_minutes',
+        metavar='cycle_minutes',
+        default='0',
+        help='how many minutes to set the cycle timer')
+    parser.add_argument(
+        '-CS',
+        '--cycle_seconds',
+        metavar='cycle_seconds',
+        default='0',
+        help='how many seconds to set the cycle timer')
+    parser.add_argument(
+        '-BH',
+        '--break_hours',
+        metavar='break_hours',
+        default='0',
+        help='how many hours to set the break timer')
+    parser.add_argument(
+        '-BM',
+        '--break_minutes',
+        metavar='break_minutes',
+        default='0',
+        help='how many minutes to set the break timer')
+    parser.add_argument(
+        '-BS',
+        '--break_seconds',
+        metavar='break_seconds',
+        default='0',
+        help='how many seconds to set the break timer')
     parser.add_argument('-HMC', '--how_many_cycles', metavar='how_many_cycles',
                         default='1', help='how many cycles')
     args = parser.parse_args()
-    pomodoro_timer("Pomodoro ", timedelta(seconds=(int((args.cycle_hours)*60*60) + int((args.cycle_minutes)*60) + int(args.cycle_seconds))), timedelta(seconds=(int((args.break_hours)*60*60) + int((args.break_minutes)*60) + int(args.break_seconds))), int(args.how_many_cycles))
+    pomodoro_timer("Pomodoro ", timedelta(seconds=(int((args.cycle_hours) *
+                                                       60 *
+                                                       60) +
+                                                   int((args.cycle_minutes) *
+                                                       60) +
+                                                   int(args.cycle_seconds))), timedelta(seconds=(int((args.break_hours) *
+                                                                                                     60 *
+                                                                                                     60) +
+                                                                                                 int((args.break_minutes) *
+                                                                                                     60) +
+                                                                                                 int(args.break_seconds))), int(args.how_many_cycles))
 
 
 if __name__ == "__main__":
