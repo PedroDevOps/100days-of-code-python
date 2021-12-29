@@ -7,13 +7,12 @@ Progress: Round1, Day3 = R1D3
 Bites: https://codechalleng.es/bites/128/
 References:
 OBS:
-    flake8 was used: # flake8 work_with_times_formats.py
-    autopep8 was used: # autopep8 --in-place --aggressive --aggressive work_with_times_formats.py
-    bandit was used: # bandit -r work_with_times_formats.py
+    flake8 was used: # flake8 test_work_with_times_formats.py
+    autopep8 was used: # autopep8 --in-place --aggressive --aggressive test_work_with_times_formats.py
+    bandit was used: # bandit -r test_work_with_times_formats.py
 """
 
 from work_with_times_formats import convert_eu_to_us_date, convert_us_to_eu_date, years_ago
-
 
 def test_convert_eu_to_us_date():
     line1 = '25/04/1986'
@@ -22,7 +21,6 @@ def test_convert_eu_to_us_date():
     assert convert_eu_to_us_date(line1) == '04/25/1986'
     assert convert_eu_to_us_date(line2) == '12/13/2040'
     assert convert_eu_to_us_date(line3) == '03/29/2000'
-
 
 def test_convert_us_to_eu_date():
     line1 = '05/24/1986'

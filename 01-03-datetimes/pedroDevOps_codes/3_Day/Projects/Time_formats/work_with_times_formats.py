@@ -21,16 +21,12 @@ THIS_YEAR = 2018
 # and converts this date str to a datetime object with strptime.
 # Then it extract the year from the obtained datetime object and subtract
 # it from the THIS_YEAR constant, returning the int difference.
-
-
 def years_ago(str_date):
     int_diff = abs(datetime.strptime(str_date, '%d %b, %Y').year - THIS_YEAR)
     return int_diff
 
 # Receives a date string in European format of dd/mm/yyyy
 # Convert it to an American date: mm/dd/yyyy
-
-
 def convert_eu_to_us_date(str_eu_date):
     str_us_date = datetime.strptime(
         str_eu_date, '%d/%m/%Y').strftime('%m/%d/%Y')
