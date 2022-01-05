@@ -1,4 +1,17 @@
-from directors import get_movies_by_director, get_average_scores, _calc_mean
+#!/usr/bin/env python3
+"""
+Author:  Pedro DevOps <pedroDevOps@gmail.com>
+Purpose: movie_data.py 
+Project: 100Days of code with Python
+Progress: Roond1, Day5 = R1D5
+"""
+
+# Just execute with pytest, like:
+# ubuntu@DESKTOP:~/ pytest test_movie_data.py
+# or
+# ubuntu@DESKTOP:~/ pytest -xv test_movie_data.py
+
+from movie_data import get_movies_by_director, get_average_scores, _calc_mean
 
 
 def test():
