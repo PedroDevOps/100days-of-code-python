@@ -12,10 +12,10 @@ OBS:
     bandit was used: # bandit -r query_nested_data.py
 Requirements:
     Given the provided cars dictionary:
-    Get all Jeeps
-    Get the first car of every manufacturer.
-    Get all vehicles containing the string Trail in their names (should work for other grep too)
-    Sort the models (values) alphabeticall
+        Get all Jeeps
+        Get the first car of every manufacturer.
+        Get all vehicles containing the string Trail in their names (should work for other grep too)
+        Sort the models (values) alphabeticall
 """
 
 cars = {
@@ -27,28 +27,45 @@ cars = {
 }
 
 
-def get_all_jeeps(cars=cars):
+def get_all_jeeps(cars_dict=cars):
     """return a comma  + space (', ') separated string of jeep models
        (original order)"""
-    pass
+    car_string = ""
+    for model in cars_dict['Jeep']:
+        if car_string == "":
+            car_string = model
+        else:
+            car_string = car_string + ", " + model
+    return car_string
 
 
-def get_first_model_each_manufacturer(cars=cars):
+def get_first_model_each_manufacturer(cars_dict=cars):
     """return a list of matching models (original ordering)"""
-    pass
+    matching_models_list = []
+    for models_list in cars_dict.values():
+        matching_models_list.append(models_list[0])
+    return matching_models_list
 
 
-def get_all_matching_models(cars=cars, grep='trail'):
+def get_all_matching_models(cars_dict=cars, grep='Trail'):
     """return a list of all models containing the case insensitive
        'grep' string which defaults to 'trail' for this exercise,
        sort the resulting sequence alphabetically"""
-    pass
+    matching_models_list = []
+    for models_list in cars_dict.values():
+        for model in models_list:
+            if grep.lower() in model.lower():
+                matching_models_list.append(model)
+    return matching_models_list
 
 
-def sort_car_models(cars=cars):
+def sort_car_models(cars_dict=cars):
     """return a copy of the cars dict with the car models (values)
        sorted alphabetically"""
-    pass
+    cars_dict_sorted = {}
+    for manufacture, models_list in cars_dict.items():
+        cars_dict_sorted[manufacture] = sorted(models_list)
+    return cars_dict_sorted
 
 
 def main():
@@ -56,6 +73,10 @@ def main():
     This is the main function
     '''
     print("Main Function")
+    print(get_all_jeeps(cars))
+    print(get_first_model_each_manufacturer(cars))
+    print(get_all_matching_models(cars))
+    print(sort_car_models(cars))
 
 
 if __name__ == '__main__':

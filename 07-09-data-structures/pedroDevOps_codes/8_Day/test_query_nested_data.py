@@ -11,6 +11,7 @@ Progress: Roond1, Day8 = R1D8
 # or
 # ubuntu@DESKTOP:~/ pytest -xv test_query_nested_data.py
 
+from query_nested_data import get_all_jeeps, get_all_matching_models, get_first_model_each_manufacturer, sort_car_models
 
 cars = {
     'Ford': ['Falcon', 'Focus', 'Festiva', 'Fairlane'],
@@ -21,25 +22,32 @@ cars = {
 }
 
 
-def test_get_all_jeeps(cars=cars):
+def test_get_all_jeeps(cars_dict=cars):
     """return a comma  + space (', ') separated string of jeep models
        (original order)"""
-    pass
+    assert get_all_jeeps(cars_dict) == "Grand Cherokee, Cherokee, Trailhawk, Trackhawk"
 
 
-def test_get_first_model_each_manufacturer(cars=cars):
+def test_get_first_model_each_manufacturer(cars_dict=cars):
     """return a list of matching models (original ordering)"""
-    pass
+    assert get_first_model_each_manufacturer(cars_dict) == ['Falcon','Commodore','Maxima','Civic','Grand Cherokee']
 
 
-def test_get_all_matching_models(cars=cars, grep='trail'):
+def test_get_all_matching_models(cars_dict=cars, grep='trail'):
     """return a list of all models containing the case insensitive
        'grep' string which defaults to 'trail' for this exercise,
        sort the resulting sequence alphabetically"""
-    pass
+    assert get_all_matching_models(cars_dict) == ['Trailblazer', 'Trailhawk']
 
 
-def test_sort_car_models(cars=cars):
+def test_sort_car_models(cars_dict=cars):
     """return a copy of the cars dict with the car models (values)
        sorted alphabetically"""
-    pass
+
+    assert sort_car_models(cars_dict) == {
+        'Ford': ['Fairlane', 'Falcon', 'Festiva', 'Focus'],
+        'Holden': ['Barina', 'Captiva', 'Commodore', 'Trailblazer'],
+        'Nissan': ['350Z', 'Maxima', 'Navara',  'Pulsar'],
+        'Honda': ['Accord', 'Civic', 'Jazz', 'Odyssey'],
+        'Jeep': ['Cherokee', 'Grand Cherokee',  'Trackhawk', 'Trailhawk']
+        }
