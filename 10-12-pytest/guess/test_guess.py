@@ -1,3 +1,7 @@
+# Just execute with pytest, like:
+# ubuntu@DESKTOP:~/ pytest -xv test_guess.py
+# ubuntu@DESKTOP:~/ pytest --cov-report term-missing --cov="."
+
 from unittest.mock import patch
 import random
 

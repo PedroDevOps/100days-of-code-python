@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+"""
+Author:  Pedro DevOps <pedroDevOps@gmail.com>
+Purpose: test with pytest states.py 
+Project: 100Days of code with Python
+Progress: Roond1, Day9 = R1D9
+"""
+
+# Just execute with pytest, like:
+# ubuntu@DESKTOP:~/ pytest -xv test_states.py
+# ubuntu@DESKTOP:~/ pytest --cov-report term-missing --cov="."
+
+
 from states import (get_every_nth_state, get_state_abbrev,
                     get_longest_state, combine_state_names_and_abbreviations,
                     states, us_state_abbrev, NOT_FOUND)
