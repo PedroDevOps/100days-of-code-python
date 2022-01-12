@@ -8,3 +8,9 @@ token.txt
 __pycache__
 .pytest_cache
 .coverage
+
+#Virtual Enviroments
+.venv
+
+#Requirements
+requirements.txt
