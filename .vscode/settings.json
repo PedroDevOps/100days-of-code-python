@@ -3,7 +3,7 @@
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.testing.pytestArgs": [
-        "19-21-itertools"
+        "22-24-decorators"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
