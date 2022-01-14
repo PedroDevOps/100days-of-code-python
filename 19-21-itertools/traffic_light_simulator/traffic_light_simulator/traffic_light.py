@@ -12,21 +12,20 @@ import random
 from termcolor import colored
 
 COLORS = [colored("Red", "red"), colored("Green", "green"), colored("Yellow", "yellow")]
-traffic_light = itertools.cycle(COLORS)
+traffic_light_rotation = itertools.cycle(COLORS)
 
 
 def cycle_through():
 
-    while True:
+    for light in traffic_light_rotation:
         traffic_intensity = random.randint(0, 3)
         print(f"The traffic intensity is {traffic_intensity} right now")
-        color = next(traffic_light)
-        print(f"The traffic ligth is {color}")
-        if color == colored("Red", "red"):
+        print(f"The traffic ligth is {light}")
+        if light == colored("Red", "red"):
             time.sleep(3 + traffic_intensity)
-        elif color == colored("Green", "green"):
+        elif light == colored("Green", "green"):
             time.sleep(2 + traffic_intensity)
-        elif color == colored("Yellow", "yellow"):
+        elif light == colored("Yellow", "yellow"):
             time.sleep(1 + traffic_intensity)
 
 
