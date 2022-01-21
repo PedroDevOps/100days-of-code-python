@@ -1,23 +1,28 @@
+#!/usr/bin/env python3
+
+
 import logbook
 import sys
-
 import api
 import requests.exceptions
 
-app_log = logbook.Logger('App')
+app_log = logbook.Logger("App")
 
 
 def main():
-    keyword = input('Keyword of title search: ')
+    keyword = input("Keyword of title search: ")
     try:
         results = api.find_movie_by_title(keyword)
 
-        print(f'There are {len(results)} movies found.')
+        print(f"There are {len(results)} movies found.")
         for r in results:
             print(f"{r.title} with code {r.imdb_code} has score {r.imdb_score}")
 
-        app_log.trace('Search successful: keyword: {}, {:,} results.'.format(
-            keyword, len(results)))
+        app_log.trace(
+            "Search successful: keyword: {}, {:,} results.".format(
+                keyword, len(results)
+            )
+        )
     except requests.exceptions.ConnectionError:
         msg = "Could not find server. Check your network connection."
         print("ERROR: " + msg)
@@ -40,14 +45,13 @@ def init_logging(filename: str = None):
     else:
         logbook.StreamHandler(sys.stdout, level=level).push_application()
 
-    msg = 'Logging initialized, level: {}, mode: {}'.format(
-        level,
-        "stdout mode" if not filename else 'file mode: ' + filename
+    msg = "Logging initialized, level: {}, mode: {}".format(
+        level, "stdout mode" if not filename else "file mode: " + filename
     )
-    logger = logbook.Logger('Startup')
+    logger = logbook.Logger("Startup")
     logger.notice(msg)
 
 
-if __name__ == '__main__':
-    init_logging('movie-app.log')
+if __name__ == "__main__":
+    init_logging("movie-app.log")
     main()
