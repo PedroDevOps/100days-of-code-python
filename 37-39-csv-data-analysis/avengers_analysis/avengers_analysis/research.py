@@ -6,6 +6,7 @@ import re
 
 from functools import wraps
 from collections import defaultdict
+from typing import List
 
 
 Record = collections.namedtuple(
@@ -37,7 +38,7 @@ def timeit(func):
     return wrapper
 
 
-def init():
+def init() -> List[Record]:
     """open the csv file and extract the information
 
     return the information to a global list of records
@@ -64,17 +65,17 @@ def parse_row(row) -> Record:
 
 
 # @timeit
-def who_is_the_oldest_avenger(data) -> list[Record]:
+def who_is_the_oldest_avenger(data: List[Record]) -> List[Record]:
     return sorted(data, key=lambda r: r.Years_since_joining, reverse=True)
 
 
 # @timeit
-def who_is_the_most_recent_avenger(data) -> list[Record]:
+def who_is_the_most_recent_avenger(data) -> List[Record]:
     return sorted(data, key=lambda r: r.Years_since_joining)
 
 
 # @timeit
-def who_died_the_most(data) -> list:
+def who_died_the_most(data) -> List:
     deaths_dict = defaultdict(list)
 
     for avenger_record in data:
@@ -89,7 +90,7 @@ def who_died_the_most(data) -> list:
 
 
 # @timeit
-def is_there_a_avenger_called(data) -> list[Record]:
+def is_there_a_avenger_called(data) -> List[Record]:
 
     try:
         name = input("Is there a avenger called ..... or with this words ..... in their name? \n")
