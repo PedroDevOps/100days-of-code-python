@@ -1,0 +1,36 @@
+[2022-01-19 13:40:19.721996] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 13:40:26.953836] TRACE: API: Starting search for warrior
+[2022-01-19 13:40:28.214721] TRACE: API: Request finished, status code 200.
+[2022-01-19 13:40:28.216153] TRACE: API: Finished search for warrior, 10 results in 1262 ms.
+[2022-01-19 13:40:28.231414] TRACE: App: Search successful: keyword: warrior, 10 results.
+[2022-01-19 13:41:13.876834] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 13:41:15.048687] TRACE: API: Starting search for 
+[2022-01-19 13:41:15.048880] WARNING: API: No keyword supplied
+[2022-01-19 13:41:15.049670] WARNING: App: You must specify a search term.
+[2022-01-19 13:41:22.913713] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 13:41:28.371160] TRACE: API: Starting search for iron
+[2022-01-19 13:41:29.268045] TRACE: API: Request finished, status code 200.
+[2022-01-19 13:41:29.268670] ERROR: App: 
+Traceback (most recent call last):
+  File "/home/ubuntu/100days-of-code-python/31-33-logging/demo/movie_search_logging_edition/./program.py", line 15, in main
+    results = api.find_movie_by_title(keyword)
+  File "/home/ubuntu/100days-of-code-python/31-33-logging/demo/movie_search_logging_edition/api.py", line 34, in find_movie_by_title
+    results = create_random_errors(results)
+  File "/home/ubuntu/100days-of-code-python/31-33-logging/demo/movie_search_logging_edition/api.py", line 58, in create_random_errors
+    raise StopIteration()
+StopIteration
+[2022-01-19 13:41:35.641007] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 13:41:37.763443] TRACE: API: Starting search for iron
+[2022-01-19 13:41:38.399214] TRACE: API: Request finished, status code 200.
+[2022-01-19 13:41:38.399540] TRACE: API: Finished search for iron, 9 results in 636 ms.
+[2022-01-19 13:41:38.403700] TRACE: App: Search successful: keyword: iron, 9 results.
+[2022-01-19 13:44:11.399499] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 13:44:16.659860] TRACE: API: Starting search for fantasy
+[2022-01-19 13:44:17.165066] TRACE: API: Request finished, status code 200.
+[2022-01-19 13:44:17.165413] TRACE: API: Finished search for fantasy, 1 results in 505 ms.
+[2022-01-19 13:44:17.165550] TRACE: App: Search successful: keyword: fantasy, 1 results.
+[2022-01-19 16:41:55.224559] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: movie-app.log
+[2022-01-19 16:42:18.112130] TRACE: API: Starting search for fight
+[2022-01-19 16:42:23.835102] TRACE: API: Request finished, status code 200.
+[2022-01-19 16:42:23.836323] TRACE: API: Finished search for fight, 10 results in 5724 ms.
+[2022-01-19 16:42:23.837159] TRACE: App: Search successful: keyword: fight, 10 results.
